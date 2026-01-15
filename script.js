@@ -10,12 +10,18 @@ form.addEventListener("submit", function (e) {
 
   fetch("https://script.google.com/macros/s/AKfycbx9vGzRRvG2Ameo52GZm18UrKdjoS_JwS-RbH-VKcigm2pNY3qJuYcsaW-IEMNKIw0HfQ/exec", {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify(data)
   })
-  .then(r => r.json())
+  .then(res => res.text())   // Apps Script aman pakai text
   .then(() => {
     alert("Data terkirim ke Google Sheet");
     form.reset();
   })
-  .catch(() => alert("Gagal"));
+  .catch(err => {
+    console.error(err);
+    alert("Gagal mengirim data");
+  });
 });
