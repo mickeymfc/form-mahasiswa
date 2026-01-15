@@ -1,40 +1,21 @@
-const form = document.getElementById("formMahasiswa");
-const tabel = document.getElementById("tabelMahasiswa");
-
-// ambil data lama saat halaman dibuka
-let dataMahasiswa = JSON.parse(localStorage.getItem("mahasiswa")) || [];
-tampilkanData();
-
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const mahasiswa = {
-    nama: document.getElementById("nama").value,
-    nim: document.getElementById("nim").value,
-    jurusan: document.getElementById("jurusan").value,
-    semester: document.getElementById("semester").value
+  const data = {
+    nama: nama.value,
+    nim: nim.value,
+    jurusan: jurusan.value,
+    semester: semester.value
   };
 
-  dataMahasiswa.push(mahasiswa);
-
-  // simpan ke localStorage
-  localStorage.setItem("mahasiswa", JSON.stringify(dataMahasiswa));
-
-  tampilkanData();
-  form.reset();
+  fetch("https://script.google.com/macros/s/AKfycbx9vGzRRvG2Ameo52GZm18UrKdjoS_JwS-RbH-VKcigm2pNY3qJuYcsaW-IEMNKIw0HfQ/exec", {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(r => r.json())
+  .then(() => {
+    alert("Data terkirim ke Google Sheet");
+    form.reset();
+  })
+  .catch(() => alert("Gagal"));
 });
-
-function tampilkanData() {
-  tabel.innerHTML = "";
-
-  dataMahasiswa.forEach((mhs) => {
-    tabel.innerHTML += `
-      <tr>
-        <td>${mhs.nama}</td>
-        <td>${mhs.nim}</td>
-        <td>${mhs.jurusan}</td>
-        <td>${mhs.semester}</td>
-      </tr>
-    `;
-  });
-}
