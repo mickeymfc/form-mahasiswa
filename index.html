@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Data Mahasiswa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h2>Form Data Mahasiswa</h2>
+
+    <form id="formMahasiswa">
+      <label>Nama Mahasiswa</label>
+      <input type="text" id="nama" required>
+
+      <label>NIM</label>
+      <input type="text" id="nim" required>
+
+      <label>Jurusan</label>
+      <input type="text" id="jurusan" required>
+
+      <label>Semester</label>
+      <input type="number" id="semester" required>
+
+      <button type="submit">Simpan</button>
+    </form>
+
+    <div id="hasil"></div>
+    <h3>Daftar Mahasiswa</h3>
+<table border="1" width="100%">
+  <thead>
+    <tr>
+      <th>Nama</th>
+      <th>NIM</th>
+      <th>Jurusan</th>
+      <th>Semester</th>
+    </tr>
+  </thead>
+  <tbody id="tabelMahasiswa"></tbody>
+</table>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
