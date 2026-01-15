@@ -25,3 +25,4 @@ form.addEventListener("submit", function (e) {
     alert("Gagal");
   });
 });
+
