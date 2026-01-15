@@ -1,3 +1,9 @@
+const form = document.getElementById("formMahasiswa");
+const nama = document.getElementById("nama");
+const nim = document.getElementById("nim");
+const jurusan = document.getElementById("jurusan");
+const semester = document.getElementById("semester");
+
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -25,4 +31,3 @@ form.addEventListener("submit", function (e) {
     alert("Gagal");
   });
 });
-
