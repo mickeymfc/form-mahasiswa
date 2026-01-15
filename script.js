@@ -8,7 +8,7 @@ form.addEventListener("submit", function (e) {
     semester: semester.value
   };
 
-  fetch("https://script.google.com/macros/s/AKfycbx9vGzRRvG2Ameo52GZm18UrKdjoS_JwS-RbH-VKcigm2pNY3qJuYcsaW-IEMNKIw0HfQ/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbzZl7FrVFYaqIKE0UqIDXkuvE6msFSVM4q4SD2mDyZm/dev", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -25,3 +25,4 @@ form.addEventListener("submit", function (e) {
     alert("Gagal mengirim data");
   });
 });
+
